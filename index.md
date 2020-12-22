@@ -1,19 +1,26 @@
-## Welcome to GitHub Pages
+## Modelos de Machine Learning - PySpark e Python
 
-You can use the [editor on GitHub](https://github.com/angelica93/Analise_Dados_com_Pyspark/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Preparação dos dados
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Substituir
 
 ```markdown
-Syntax highlighted code block
+dataset = df.replace('null', None).dropna(how='any')
 
-# Header 1
-## Header 2
-### Header 3
+-  Mostrar os dados
+
+```markdown
+dataset.show()
+
+- Preparação dos dados para o Modelo
+
+```markdown
+required_features = [...]
+from pyspark.ml.feature import VectorAssembler
+assembler = VectorAssembler(inputCols=required_features, outputCol='features')
+transformed_data = assembler.transform(dataset)
 
 - Bulleted
 - List
